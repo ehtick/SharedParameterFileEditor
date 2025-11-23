@@ -5,6 +5,7 @@ using Syncfusion.UI.Xaml.Grid;
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace SharedParameterFileEditor.Views;
 /// <summary>
@@ -138,6 +139,28 @@ public partial class MainView : Window
                 };
                 mergeParametersView.ShowDialog();
             }
+        }
+    }
+
+    private void MenuItem_MRU_Click(object sender, RoutedEventArgs e)
+    {
+        //get the header value from the clicked submenu item
+        string filePath = ((System.Windows.Controls.MenuItem)e.OriginalSource).Header.ToString();
+
+        OpenFile(filePath);
+
+    }
+
+    private void OpenFile(string filePath)
+    {
+        if (File.Exists(filePath))
+        {
+            _viewModel.FileInfo = new FileInfo(filePath);
+            _viewModel.LoadDefinitionFile();
+        }
+        else
+        {
+            MessageBox.Show("The file does not exist.  It may have been moved or deleted.", "File Not Found", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 

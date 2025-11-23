@@ -1,9 +1,8 @@
 ﻿using Nuke.Common;
+using Nuke.Common.Git;
 using Nuke.Common.IO;
-using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Tools.SignTool;
 using Serilog;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using static Nuke.Common.Tools.SignTool.SignToolTasks;
@@ -12,6 +11,7 @@ partial class Build
 {
     Target Sign => _ => _
     .TriggeredBy(Compile)
+    .OnlyWhenStatic(() => GitRepository.IsOnMainOrMasterBranch())
     .Executes(() => 
     {
         var compiledAssemblies = new List<string>();
@@ -37,9 +37,8 @@ partial class Build
     });
 
     static void SignFiles(List<string> compiledAssemblies) => SignTool(s => s
-                .SetFileDigestAlgorithm("sha256")
-                .SetTimestampServerUrl(@$"http://timestamp.comodoca.com")
-                .SetFile(Environment.GetEnvironmentVariable("CODECERT_PFX"))
-                .SetPassword(System.IO.File.ReadLines(Environment.GetEnvironmentVariable("CODECERT_PASS")).First())
-                .SetFiles(compiledAssemblies.ToArray()));
+            .SetFileDigestAlgorithm("sha256")
+            .SetTimestampServerUrl(@$"http://time.certum.pl")
+            .SetSigningSubjectName("Open Source Developer, Russell Green")
+            .SetFiles(compiledAssemblies.ToArray()));
 }

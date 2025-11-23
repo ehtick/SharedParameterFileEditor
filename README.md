@@ -1,4 +1,4 @@
-<img src="https://img.shields.io/badge/.net-8.0-blue"> 
+<img src="https://img.shields.io/badge/.net-10.0-blue"> 
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/russgreen/SharedParameterFileEditor) ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/russgreen/SharedParameterFileEditor/total)
 

@@ -1,0 +1,18 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+  </Configurations>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Build.props" />
+    <File Path="README.md" />
+    <File Path="SyncfusionKey.txt" />
+    <File Path="SyncfusionLicenseRegister.bat" />
+  </Folder>
+  <Project Path="build/_build.csproj" />
+  <Project Path="SharedParameterFileEditor/SharedParameterFileEditor.csproj">
+    <Platform Project="x64" />
+  </Project>
+  <Project Path="SharedParametersDefinitionFile/SharedParametersDefinitionFile.csproj">
+    <Platform Project="x64" />
+  </Project>
+</Solution>

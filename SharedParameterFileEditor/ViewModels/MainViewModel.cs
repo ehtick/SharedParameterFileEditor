@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.IO;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace SharedParameterFileEditor.ViewModels;
 internal partial class MainViewModel : BaseViewModel
@@ -51,11 +52,15 @@ internal partial class MainViewModel : BaseViewModel
     [ObservableProperty]
     private List<ParameterType> _types = Enum.GetValues(typeof(ParameterType)).Cast<ParameterType>().ToList();
 
+    [ObservableProperty]
+    private List<string> _mostRecentlyUsedFiles;
 
     public MainViewModel()
 	{
         var informationVersion = Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyInformationalVersionAttribute>().InformationalVersion;
         WindowTitle = $"Shared Parameter View Editor {informationVersion}";
+
+        MostRecentlyUsedFiles = GetMostRecentlyUsedFiles();
 
         //WeakReferenceMessenger.Default.Register<ListOfParametersMessage>(this, (r, m) =>
         //{
@@ -91,6 +96,8 @@ internal partial class MainViewModel : BaseViewModel
     {
         DefFile = new SharedParametersDefinitionFile(FileInfo.FullName);
         DefFile.LoadFile();
+
+        UpdateMRU();
 
         DefFile.definitionFileModel.Parameters.CollectionChanged += Parameters_CollectionChanged;
         DefFile.definitionFileModel.Groups.CollectionChanged += Groups_CollectionChanged;
@@ -172,5 +179,55 @@ internal partial class MainViewModel : BaseViewModel
         }
 
         UnsavedChanges = true;
+    }
+
+
+    private void UpdateMRU()
+    {
+        MostRecentlyUsedFiles.Clear();
+
+        MostRecentlyUsedFiles = GetMostRecentlyUsedFiles();
+    }
+
+    private List<string> GetMostRecentlyUsedFiles()
+    {
+        var recentFiles = new List<string>();
+
+        var path = Environment.GetFolderPath(Environment.SpecialFolder.Recent);
+
+        var directory = new DirectoryInfo(path);
+        var shortcutFiles = directory.GetFiles("*.txt.lnk")
+            .Where(f => f.Name.Contains("shared", StringComparison.OrdinalIgnoreCase))
+            .OrderByDescending(f => f.LastWriteTimeUtc)
+            .Take(10)
+            .ToList();
+
+        if (shortcutFiles.Count < 1)
+        {
+            return recentFiles;
+        }
+
+        dynamic script = CreateComInstance("Wscript.Shell");
+
+        foreach (var file in shortcutFiles)
+        {
+            dynamic sc = script.CreateShortcut(file.FullName);
+            recentFiles.Add(sc.TargetPath);
+            Marshal.FinalReleaseComObject(sc);
+        }
+        Marshal.FinalReleaseComObject(script);
+
+        return recentFiles;
+    }
+
+    private object CreateComInstance(string progId)
+    {
+        Type type = Type.GetTypeFromProgID(progId);
+        if (type == null)
+        {
+            return null;
+        }
+
+        return Activator.CreateInstance(type);
     }
 }

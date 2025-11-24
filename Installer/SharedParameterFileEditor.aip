@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<DOCUMENT Type="Advanced Installer" CreateVersion="19.1" version="21.4" Modules="simple" RootPath="." Language="en" Id="{DB7D2917-09A9-44B9-98CC-F1A24D3D06FC}">
-  <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
-    <ROW Name="HiddenItems" Value="AppXAppDetailsComponent;FixupComponent;AppXCapabilitiesComponent;AppXDependenciesComponent;AppXProductDetailsComponent;AppXVisualAssetsComponent;AppXAppDeclarationsComponent;AppXUriRulesComponent;MsiXDiffComponent;MsixManifestEditorComponent"/>
-  </COMPONENT>
+<DOCUMENT Type="Advanced Installer" CreateVersion="19.1" version="23.0.1" Modules="simple" RootPath="." Language="en" Id="{DB7D2917-09A9-44B9-98CC-F1A24D3D06FC}">
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
     <ROW Property="AI_PREDEF_LCONDS_PROPS" Value="AI_DETECTED_DOTNET_CORE_VERSION"/>
-    <ROW Property="AI_REQUIRED_DOTNET_CORE_DISPLAY" MultiBuildValue="DefaultBuild:8.0" ValueLocId="-"/>
-    <ROW Property="AI_REQUIRED_DOTNET_CORE_VERSION" MultiBuildValue="DefaultBuild:8.0" ValueLocId="-"/>
+    <ROW Property="AI_REQUIRED_DOTNET_CORE_DISPLAY" MultiBuildValue="DefaultBuild:10.0" ValueLocId="-"/>
+    <ROW Property="AI_REQUIRED_DOTNET_CORE_VERSION" MultiBuildValue="DefaultBuild:10.0" ValueLocId="-"/>
     <ROW Property="ALLUSERS" Value="1"/>
     <ROW Property="ARPCOMMENTS" Value="This installer database contains the logic and data required to install [|ProductName]." ValueLocId="*"/>
     <ROW Property="ARPPRODUCTICON" Value="spEditor_1.exe" Type="8"/>

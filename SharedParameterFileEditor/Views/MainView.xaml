@@ -43,7 +43,11 @@
         <Menu Grid.Row="0" Grid.ColumnSpan="2" >
             <MenuItem Header="_File">
                 <MenuItem Header="_Open..." x:Name="menuItemOpen" Click="menuItemOpen_Click" />
-                <Separator />                
+                <Separator/>
+                <MenuItem Header="Recent files" 
+                              ItemsSource="{Binding MostRecentlyUsedFiles}" 
+                              Click="MenuItem_MRU_Click"  />
+                <Separator/>
                 <MenuItem Header="_Save" IsEnabled="{Binding SaveEnabled}" 
                           Command="{Binding SaveDefinitionFileCommand}"/>
                 <MenuItem Header="Save as..." x:Name="menuItemSaveAs" 

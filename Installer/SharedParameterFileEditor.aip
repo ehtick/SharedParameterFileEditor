@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<DOCUMENT Type="Advanced Installer" CreateVersion="19.1" version="23.0.1" Modules="simple" RootPath="." Language="en" Id="{DB7D2917-09A9-44B9-98CC-F1A24D3D06FC}">
+<DOCUMENT Type="Advanced Installer" CreateVersion="19.1" version="23.2" Modules="simple" RootPath="." Language="en" Id="{DB7D2917-09A9-44B9-98CC-F1A24D3D06FC}">
   <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
     <ROW Property="AI_BITMAP_DISPLAY_MODE" Value="0"/>
     <ROW Property="AI_PREDEF_LCONDS_PROPS" Value="AI_DETECTED_DOTNET_CORE_VERSION"/>
@@ -10,10 +10,10 @@
     <ROW Property="ARPPRODUCTICON" Value="spEditor_1.exe" Type="8"/>
     <ROW Property="ARPURLINFOABOUT" Value="https://github.com/russgreen/SharedParameterFileEditor/issues"/>
     <ROW Property="Manufacturer" Value="Russell Green"/>
-    <ROW Property="ProductCode" Value="1033:{D18C0E22-F892-4051-A370-013B5DA86F13} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{EFE422F9-0DB2-4D16-BB69-FEB274938CAE} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Shared Paramter File Editor"/>
-    <ROW Property="ProductVersion" Value="2.4.0" Options="32"/>
+    <ROW Property="ProductVersion" Value="2.5" Options="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{B08A6D9E-A4E7-4745-A390-99A116B9334E}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>

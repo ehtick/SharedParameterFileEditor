@@ -6,7 +6,7 @@
     <Authors>Russ Green</Authors>	  
     <Description>Edit and maintain Revit shared parameters files outside of Revit</Description>
  	  
-    <VersionPrefix>2.4</VersionPrefix>
+    <VersionPrefix>2.5</VersionPrefix>
     <VersionSuffix></VersionSuffix>
     <ApplicationVersion>$(VersionPrefix).0</ApplicationVersion>
     <FileVersion>$(VersionPrefix).0</FileVersion>

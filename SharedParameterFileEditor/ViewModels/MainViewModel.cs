@@ -1,8 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using Serilog;
+using Serilog.Context;
 using SharedParameterFileEditor.Messages;
 using SharedParameterFileEditor.Models;
+using SharedParameterFileEditor.Views;
 using SharedParametersFile;
 using SharedParametersFile.Models;
 using System.Collections.ObjectModel;
@@ -94,6 +97,12 @@ internal partial class MainViewModel : BaseViewModel
     [RelayCommand]
     public void LoadDefinitionFile()
     {
+        using (LogContext.PushProperty("UsageTracking", true))
+        {
+            Log.Information("{command}", nameof(LoadDefinitionFile));
+        }
+
+
         DefFile = new SharedParametersDefinitionFile(FileInfo.FullName);
         DefFile.LoadFile();
 
@@ -118,7 +127,12 @@ internal partial class MainViewModel : BaseViewModel
     [RelayCommand]
     public void SaveDefinitionFile()
     {
-        if(NewFileName != null)
+        using (LogContext.PushProperty("UsageTracking", true))
+        {
+            Log.Information("{command}", nameof(SaveDefinitionFile));
+        }
+
+        if (NewFileName != null)
         {
             DefFile?.SaveFile(NewFileName, false);
             return;
@@ -131,6 +145,11 @@ internal partial class MainViewModel : BaseViewModel
     [RelayCommand]
     private void MergeDefinitionFile(GroupsAndParametersModel itemsToMerge)
     {
+        using (LogContext.PushProperty("UsageTracking", true))
+        {
+            Log.Information("{command}", nameof(MergeDefinitionFile));
+        }
+
         if (itemsToMerge.ParameterModels.Count > 0)
         {
             var newGroup = new GroupModel

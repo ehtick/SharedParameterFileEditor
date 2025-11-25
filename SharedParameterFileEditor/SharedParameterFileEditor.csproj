@@ -25,18 +25,15 @@
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.*" />
     <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
     <PackageReference Include="Syncfusion.SfGrid.WPF" Version="20.3.0.61" />
+
+	<PackageReference Include="Serilog" Version="4.3.0" />
+
+	<PackageReference Include="Serilog.Sinks.Debug" Version="3.0.0" />
+	<PackageReference Include="Serilog.Sinks.GoogleAnalytics" Version="1.*" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SharedParametersDefinitionFile\SharedParametersDefinitionFile.csproj" />
   </ItemGroup>
-
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="cd &quot;$(SolutionDir)&quot;&#xD;&#xA;SyncfusionLicenseRegister.bat PreBuild $(ProjectDir)App.xaml.cs $(SolutionDir)SyncfusionKey.txt" />
-  </Target>
-
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="cd &quot;$(SolutionDir)&quot;&#xD;&#xA;SyncfusionLicenseRegister.bat PostBuild $(ProjectDir)App.xaml.cs $(SolutionDir)SyncfusionKey.txt" />
-  </Target>
 
 </Project>

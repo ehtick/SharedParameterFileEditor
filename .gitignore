@@ -352,6 +352,10 @@ MigrationBackup/
 # Syncfusion License Key 
 SyncfusionKey.txt
 
+# Googe Analytics Keys
+ApiSecret.txt
+MeasurementId.txt
+
 # Advanced Installer
 Installer/*.back.aip
 Installer/SharedParameterFileEditor-cache/*

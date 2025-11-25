@@ -10,10 +10,10 @@
     <ROW Property="ARPPRODUCTICON" Value="spEditor_1.exe" Type="8"/>
     <ROW Property="ARPURLINFOABOUT" Value="https://github.com/russgreen/SharedParameterFileEditor/issues"/>
     <ROW Property="Manufacturer" Value="Russell Green"/>
-    <ROW Property="ProductCode" Value="1033:{AC0D476A-8184-4900-9A44-1A047FE95A33} " Type="16"/>
+    <ROW Property="ProductCode" Value="1033:{3CBFBFCE-C4EF-4DF0-B468-68459172C5C1} " Type="16"/>
     <ROW Property="ProductLanguage" Value="1033"/>
     <ROW Property="ProductName" Value="Shared Paramter File Editor"/>
-    <ROW Property="ProductVersion" Value="2.5" Options="32"/>
+    <ROW Property="ProductVersion" Value="2.5.1" Options="32"/>
     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND"/>
     <ROW Property="UpgradeCode" Value="{B08A6D9E-A4E7-4745-A390-99A116B9334E}"/>
     <ROW Property="WindowsType9X" MultiBuildValue="DefaultBuild:Windows 9x/ME" ValueLocId="-"/>
